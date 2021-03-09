@@ -1,1 +1,98 @@
 @import '~bootstrap/scss/bootstrap';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    background: #145374;
+    color: #f6f5f5;
+}
+.title_font {
+    text-align: center;
+    letter-spacing: 2px;
+    
+}
+.wrapper {
+    display: flex;
+    max-width: 560px;
+    width: 100%;
+    height: 390px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.wrapper .left,
+.wrapper .right {
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+}
+.wrapper .left {
+    background: #00334e;
+}
+.wrapper .left h3 {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #f6f5f5;
+    font-size: 20px;
+}
+.wrapper .left img {
+    display: block;
+    width: 220px;
+    margin: 25px auto 0;
+}
+.wrapper .right {
+    background: #f8f8f8;
+}
+.wrapper .right .tabs ul {
+    text-align: center;
+}
+.wrapper .right .tabs ul  li{
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #ff5858;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.wrapper .right .tabs ul li.active{
+    border-bottom: 2px solid #00334e;
+}
+.wrapper .right .signUp,
+.wrapper .right .signIn {
+    margin-top: 20px;
+}
+.wrapper .right .input_field {
+    margin-bottom: 15px;
+}
+.wrapper .right .form_box .input_field {
+    width: 100%;
+    padding: 10px 15px;
+    border: 0;
+    font-size: 12px;
+    background: #dee0d9;
+}
+.wrapper .right .submit_btn {
+    margin-top: 20px;
+    background: #ff5858;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+.wrapper .right .submit_btn a {
+    color: white;
+}

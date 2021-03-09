@@ -12,8 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1 class="title_font">Fantasy Basketball Team Builder</h1>
-      <div class="auth-section">
+      <!-- <div class="auth-section">
         <div class="wrapper">
 
           <div class="left">
@@ -52,8 +51,8 @@
 
 
 
-      </div>
-      <!--Navigation Bar -->
+      </div> -->
+      <!--Create Team Page -->
       <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #ff5858;" id="navbar">
         <a class="navbar-brand" href="index.html">
           <img src="./public/image/fantasty_basketball.png" width="50" height="50" alt="fantasty_basketball">
@@ -64,10 +63,10 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#create-team-section">Create Team <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="create-team.html">Create Team <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#add-player-section">Add/Update Players</a>
+              <a class="nav-link" href="#">Add/Update Players</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">View Team</a>
@@ -83,8 +82,8 @@
       </nav>
       <br>
       <br>
-      <!--Create Team-->
-      <div class="container" id="create-team-section">
+
+      <div class="container">
         <form id="create-team">
           <div class="form-group">
             <label for="exampleInputEmail1">Team Name</label>
@@ -101,19 +100,6 @@
           </div>
           <button type="submit" class="btn btn-danger">Join League</button>
         </form>
-      </div>
-      <br><br>
-      <!--Add/Update Player-->
-      <div class="container" id="add-player-section">
-        <h2 class="edit-team-header">Edit Team</h2>
-        <div class="row">
-          <div class="col">
-          <h3>Update Players</h3>
-          </div>
-          <div class="col">
-          <h3>Add Players</h3>
-          </div>
-        </div>
       </div>
       <div id="message_board"></div>
     </body>
