@@ -22,7 +22,17 @@ const viewTeam = () => {
         }
     })
 }
+const destroy = function (id) {
+    return $.ajax({
+      url: config.apiUrl + '/teams/' + id,
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + store.user.token
+    }
+    })
+  }
 module.exports = {
     createTeam,
-    viewTeam
+    viewTeam,
+    destroy
 }

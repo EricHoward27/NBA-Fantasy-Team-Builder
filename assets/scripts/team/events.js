@@ -19,8 +19,16 @@ const onViewTeam = () => {
     .then(ui.viewTeamSuccess)
     .catch(ui.onError)
 }
+const onTeamDelete = (event) => {
+const deleteBtn = event.target
+const id = $(deleteBtn).data('id')
 
+api.destroy(id)
+    .then(ui.teamDeleteSuccess)
+    .catch(ui.onError)
+}
 module.exports = {
     onCreateTeam,
-    onViewTeam
+    onViewTeam,
+    onTeamDelete
 }

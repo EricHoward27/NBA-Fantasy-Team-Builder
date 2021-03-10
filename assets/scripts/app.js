@@ -36,11 +36,15 @@ $(() => {
   // auth event handlers
   $('#sign-up').on('submit', authEvent.onSignUp)
   $('#sign-in').on('submit', authEvent.onSignIn)
+  $('#sign-out').on('click', authEvent.onSignOut)
   // team event handlers
   $('#create-team').on('submit', teamEvent.onCreateTeam)
   $('#view-team').on('click', teamEvent.onViewTeam)
+  $('#view-team').hide() 
   // player event handlers
   $('#addPlayer').on('submit', authPlayer.onAddPlayer)
+  // delete team
+  $('#team-display').on('click','.teams-delete-btn', teamEvent.onTeamDelete)
   // edit/delete 
   // $('#edit-btn').on('click', authPlayer.onEdit)
   // $('#delete-btn').on('click', authPlayer.onDelete)

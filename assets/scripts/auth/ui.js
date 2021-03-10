@@ -23,6 +23,7 @@ const signInSuccess = (data) => {
     $('#navbar').show()
     $('#create-team').show()
     $('#add-player-section').show()
+    $('#view-team').show() 
 
 
     console.log('sign in success data is: ', data)
@@ -39,9 +40,33 @@ const signInSuccess = (data) => {
             $('#message_board').hide()
         }, 4000)
     }
+    const signOutSuccess = (data) => {
+        $('#message_board').html('Sign out was successful!')
+        
+        $('.auth-section').show()
+        $('.title_font').show()
+        $('#navbar').hide()
+        $('#create-team').hide()
+        $('#add-player-section').hide()
+        $('#view-team').hide() 
+        $('#team-display').hide()
+
+        setTimeout(() => {
+          $('#message_board').hide()
+        }, 4000)
+      }
+      const signOutFail = (error) => {
+        $('#message_board').html('Sign out fail, please try again.')
+      
+        setTimeout(() => {
+          $('#message_board').hide()
+        }, 4000)
+    }
 module.exports = {
     signUpSuccess,
     signUpFail,
     signInSuccess,
-    signInFail
+    signInFail,
+    signOutSuccess,
+    signOutFail
 }
