@@ -12,10 +12,15 @@ const onCreateTeam = (event) => {
 
     api.createTeam(data)
     .then(ui.createTeamSuccess)
-    .catch(ui.createTeamFail)
+    .catch(ui.onError)
+}
+const onViewTeam = () => {
+    api.viewTeam()
+    .then(ui.viewTeamSuccess)
+    .catch(ui.onError)
 }
 
-
 module.exports = {
-    onCreateTeam
+    onCreateTeam,
+    onViewTeam
 }

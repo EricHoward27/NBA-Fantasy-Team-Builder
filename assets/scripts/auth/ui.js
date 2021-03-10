@@ -22,6 +22,8 @@ const signInSuccess = (data) => {
     $('.title_font').hide()
     $('#navbar').show()
     $('#create-team').show()
+    $('#add-player-section').show()
+
 
     console.log('sign in success data is: ', data)
     store.user = data.user

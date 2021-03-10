@@ -3,9 +3,9 @@ const config = require('../config')
 // empty object to store user data
 const store = require('./../store')
 
-const createTeam = (data) => {
+const addPlayer = (data) => {
     return $.ajax({
-        url: config.apiUrl + '/teams',
+        url: config.apiUrl + '/players',
         method: 'POST',
         headers: {
             Authorization: 'Bearer ' + store.user.token
@@ -13,16 +13,17 @@ const createTeam = (data) => {
         data: data
     })
 }
-const viewTeam = () => {
+const updatePlayer = (id, data) => {
     return $.ajax({
-        url: config.apiUrl + '/teams',
-        method: 'GET',
+        url: config.apiUrl + '/players/' + id,
+        method: 'PATCH',
         headers: {
             Authorization: 'Bearer ' + store.user.token
-        }
+        },
+        data: data
     })
 }
 module.exports = {
-    createTeam,
-    viewTeam
+    addPlayer,
+    updatePlayer
 }
