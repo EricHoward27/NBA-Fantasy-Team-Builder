@@ -15,7 +15,7 @@ const createTeam = (data) => {
 }
 const viewTeam = () => {
     return $.ajax({
-        url: config.apiUrl + '/teams',
+        url: config.apiUrl + '/players',
         method: 'GET',
         headers: {
             Authorization: 'Bearer ' + store.user.token
@@ -31,6 +31,8 @@ const destroy = function (id) {
     }
     })
   }
+  // update team w/ player id
+  
 module.exports = {
     createTeam,
     viewTeam,

@@ -1,6 +1,7 @@
 const store = require("../store")
 
 const addPlayerSuccess = (data) => {
+ 
 $('#message_board').text('Player added successful')
 
 setTimeout(() => {

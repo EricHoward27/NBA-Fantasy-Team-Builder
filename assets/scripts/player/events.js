@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 // require the get form fields function
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
 
 let pickRow
 
@@ -11,10 +12,13 @@ const onAddPlayer = (event) => {
     event.preventDefault()
     const form = event.target
     const data = getFormFields(form)
+    // store team id into the player's team to populate
+    data.player.team = store.team._id
+    
+    console.log(data.player.team)
 
-    console.log('add player data is: ', data)
+    // console.log('add player data is: ', data)
     api.addPlayer(data)
-   
     .then(playerData)
     .then(ui.addPlayerSuccess)
     .catch(ui.addPlayerFail)

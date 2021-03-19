@@ -27,8 +27,12 @@ api.destroy(id)
     .then(ui.teamDeleteSuccess)
     .catch(ui.onError)
 }
+const onTeamUpdate = () => {
+
+}
 module.exports = {
     onCreateTeam,
     onViewTeam,
-    onTeamDelete
+    onTeamDelete,
+    onTeamUpdate
 }

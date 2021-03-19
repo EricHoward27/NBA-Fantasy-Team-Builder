@@ -43,6 +43,7 @@ $(() => {
   $('#view-team').hide() 
   // player event handlers
   $('#addPlayer').on('submit', authPlayer.onAddPlayer)
+  $('#onUpdateBtn').on('submit', authPlayer.onUpdatePlayer)
   // delete team
   $('#team-display').on('click','.teams-delete-btn', teamEvent.onTeamDelete)
   // edit/delete 
