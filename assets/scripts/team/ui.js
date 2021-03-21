@@ -8,7 +8,8 @@ $('form').trigger('reset')
 
 // console.log('Create team response is: ', data)
 console.log("team id is: ", store.team._id)
-
+$('#add-player-section').show()
+$('#create-team').hide()
 
 }
 
@@ -19,37 +20,50 @@ const viewTeamSuccess = (data) => {
 
     let teamsHtml = ''
 
-    // teams.forEach(team => {
-    //     // console.log('team data is: ', teams)
-    //     teamsHtml += `
-    //     <p>Name: ${team.name}</p>
-    //     <p>City: ${team.city}</p>
-    //     <p>abbrv: ${team.abbrv}</p>
-    //     <p>ID: ${team._id}</p>
-    //     <p>PG: ${team.pg}</p>
-    //     <p>SG: ${team.sg}</p>
-    //     <p>SF: ${team.sf}</p>
-    //     <p>PF: ${team.pf}</p>
-    //     <p>C: ${team.c}</p>
+    players.forEach(player => {
+        // console.log('team data is: ', teams)
+        teamsHtml += `
+        <p>Name: ${player.name}</p>
+        <p>Position: ${player.position}</p>
+        <p>Points: ${player.points}</p>
+        <p>Assists: ${player.assists}</p>
+        <p>Rebounds: ${player.rebounds}</p>
+        <p>Team: ${JSON.stringify(player.team, ['city','name'])}</p>
+        <button class="player-destroy-dynamic btn btn-danger" data-id=${player._id}>Delete</button>
 
-    //     `
-    // })
-    
-    $('#team-display').html(players.map(player => `<div class="d-inline-flex p-2 bd-highlight"><ul><li>Name: ${player.name}</li><br><li>Position: ${player.position}</li><br><li>Points: ${player.points}</li><br><li>Assists: ${player.assists}</li><li>Rebounds: ${player.rebounds}</li><li>Team: ${JSON.stringify(player.team)}</li></ul>
-    <button class="teams-delete-btn btn btn-danger" data-id=${data._id}>Delete Team</button><br></div>`))
+        `
+    })
+    $('#team-display').html(teamsHtml)
+    // $('#team-display').html(players.map(player => `<div class="d-inline-flex p-2 bd-highlight"><ul><li>Name: ${player.name}</li><br><li>Position: ${player.position}</li><br><li>Points: ${player.points}</li><br><li>Assists: ${player.assists}</li><li>Rebounds: ${player.rebounds}</li><li>Team: ${JSON.stringify(player.team)}</li></ul>
+    // <br></div>
+    // <button class="player-destroy-dynamic btn btn-danger" data-id=${player._id}>Delete</button>`))
 
 }
+const onDestroySuccess = () => {
+    $('#player-destroy-message').html('Player Deleted!')
+    $('#player-destroy-message').addClass('success')
+    // this resets (clears) every form on the page
+    $('form').trigger('reset')
+    // Do the following code after a 5 second (5000 millisecond) timeout
+    setTimeout(() => {
+      // Clear the #books-destroy-message.
+      $('#player-destroy-message').html('')
+      // Remove the success class from our message
+      $('#player-destroy-message').removeClass('success')
+    }, 5000)
+}
 const onError = (err) => {
-console.log(err)
-$('#message_board').html('Something went wrong, please try again.')
+// console.log(err)
+$('#error-message').html('Something went wrong, please try again.')
 
 setTimeout(() => {
-    $('#message_board').hide()
+    $('#error-message').hide()
   }, 5000)
     $('form').trigger('reset')
 }
 module.exports = {
     createTeamSuccess,
     onError,
-    viewTeamSuccess
+    viewTeamSuccess,
+    onDestroySuccess
 }

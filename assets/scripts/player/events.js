@@ -61,6 +61,14 @@ function playerData(data){
     .then(ui.updatePlayerSuccess)
     .catch(ui.updatePlayerFail)
    }
+//    const onDelete = (event) => {
+//     const deleteBtn = event.target
+//     const id = $(deleteBtn).data('id')
+    
+//     api.destroy(id)
+//         .then(ui.deletedPlayerSuccess)
+//         .catch(ui.onError)
+//     }
 module.exports = {
     onAddPlayer,
     onUpdatePlayer,

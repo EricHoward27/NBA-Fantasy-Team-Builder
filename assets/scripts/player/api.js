@@ -23,6 +23,15 @@ const updatePlayer = (id, data) => {
         data: data
     })
 }
+// const destroy = function (id) {
+//     return $.ajax({
+//       url: config.apiUrl + '/players/' + id,
+//       method: 'DELETE',
+//       headers: {
+//         Authorization: 'Bearer ' + store.user.token
+//     }
+//     })
+//   }
 module.exports = {
     addPlayer,
     updatePlayer

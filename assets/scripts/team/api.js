@@ -24,7 +24,7 @@ const viewTeam = () => {
 }
 const destroy = function (id) {
     return $.ajax({
-      url: config.apiUrl + '/teams/' + id,
+      url: config.apiUrl + '/players/' + id,
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + store.user.token

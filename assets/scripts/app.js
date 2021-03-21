@@ -32,11 +32,13 @@ $(() => {
     $('.sign-in').removeClass('active')
     $('#sign-up').show()
     $('#sign-in').hide()
+    $('#password-btn').hide()
   })
   // auth event handlers
   $('#sign-up').on('submit', authEvent.onSignUp)
   $('#sign-in').on('submit', authEvent.onSignIn)
   $('#sign-out').on('click', authEvent.onSignOut)
+  $('#change-password').on('submit', authEvent.onChangePassword)
   // team event handlers
   $('#create-team').on('submit', teamEvent.onCreateTeam)
   $('#view-team').on('click', teamEvent.onViewTeam)
@@ -45,7 +47,7 @@ $(() => {
   $('#addPlayer').on('submit', authPlayer.onAddPlayer)
   $('#onUpdateBtn').on('submit', authPlayer.onUpdatePlayer)
   // delete team
-  $('#team-display').on('click','.teams-delete-btn', teamEvent.onTeamDelete)
+  $('#team-display').on('click', 'player-destroy-dynamic', teamEvent.onDeleteDynamic)
   // edit/delete 
   // $('#edit-btn').on('click', authPlayer.onEdit)
   // $('#delete-btn').on('click', authPlayer.onDelete)

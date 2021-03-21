@@ -36,6 +36,7 @@
                 <input type="password" class="input_field" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
                 <button class="submit_btn">Sign Up</button>
               </form>
+              <div id="signUpMessage"></div>
             </div>
 
             <div class="signIn">
@@ -43,6 +44,7 @@
                 <input type="email" class="input_field" name="credentials[email]" placeholder="Email Address" required>
                 <input type="password" class="input_field" name="credentials[password]" placeholder="Password" required>
                 <button class="submit_btn">Sign In</button>
+                <div id="signInMessage"></div>
               </form>
             </div>
           </div>
@@ -53,6 +55,37 @@
 
 
       </div>
+      <!--Change Password-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="change-password">
+          <div class="form-group">
+            <h2 style="color: blue;">Settings</h2>
+            <label for="password">Change Password</label>
+          <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password" required/>
+          <input type="password" class="form-control" name="passwords[new]" placeholder="New Password" required/>
+          <button class="btn btn-warning">Change Password</button>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
       <!--Navigation Bar -->
       <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #ff5858;" id="navbar">
         <a class="navbar-brand" href="index.html">
@@ -73,7 +106,12 @@
               <a class="nav-link" href="#">View Team</a>
             </li>
             <li class="nav-item">
-              <button class="btn btn-dark" id="sign-out">Log Out</button>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" id="password-btn" data-toggle="modal" data-target="#exampleModal">
+  Settings
+</button></li>
+            <li class="nav-item">
+              <button class="btn btn-danger" id="sign-out">Log Out</button>
             </li>
           </ul>
           <span class="navbar-text">
@@ -100,6 +138,7 @@
             <input type="text" class="form-control" name="team[abbrv]" placeholder="ABBRV">
           </div>
           <button type="submit" class="btn btn-danger">Join League</button>
+          <div id="createTeamMessage"></div>
         </form>
       </div>
       <br><br>
@@ -143,7 +182,9 @@
                     <label for="name">Rebounds:</label><br>
                     <input type="number" class="form-control" id="rebounds" name="player[rebounds]" placeholder="Rebounds Per Game" required><br>
                     <button class="btn btn-success">Add</button>
+                    <div id="addPlayerMessage"></div>
                     <button class="onUpdateBtn btn btn-warning">Update</button>
+                    <div id="updatePlayerMessage"></div>
                   </form>
                 </td>
               </tr>
@@ -155,7 +196,8 @@
       <div class="container">
         <button id="view-team" class="btn btn-success">View Team</button>
         <div id="team-display"></div>
+        <div id="player-destroy-message"></div>
       </div>
-      <div id="message_board"></div>
+      <div id="error-message"></div>
     </body>
 </html>
