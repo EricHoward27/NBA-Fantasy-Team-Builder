@@ -38,7 +38,7 @@ const signInFail = (error) => {
         }, 4000)
     }
 const signOutSuccess = (data) => {
-        $('#error-message').html('Sign out was successful!')
+        $('#error-message').text('Sign out was successful!')
         
         $('.auth-section').show()
         $('.title_font').show()
@@ -54,21 +54,21 @@ const signOutSuccess = (data) => {
       }
 
 const signOutFail = (error) => {
-        $('#error-message').html('Sign out fail, please try again.')
+        $('#error-message').text('Sign out fail, please try again.')
       
         setTimeout(() => {
           $('#error-message').hide()
         }, 4000)
     }
 const changePasswordSucess = (data) => {
-        $('#error-message').html('Password was successfully changed!')
+        $('#error-message').text('Password was successfully changed!')
         
         setTimeout(() => {
           $('#error-message').hide()
         }, 4000)
       }
 const changePasswordFail = (error) => {
-        $('#error-message').html('Password change fail, please try again.')
+        $('#error-message').text('Password change fail, please try again.')
       
         setTimeout(() => {
           $('#error-message').hide()

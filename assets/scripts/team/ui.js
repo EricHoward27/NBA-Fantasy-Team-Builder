@@ -3,11 +3,11 @@ const store = require('./../store')
 const createTeamSuccess = (data) => {
     // console.log("team data is: ", data)
     store.team = data
-$('#message_board').text('Welcome to the league!')
+$('#error-message').text('Welcome to the league!')
 $('form').trigger('reset')
 
 // console.log('Create team response is: ', data)
-console.log("team id is: ", store.team._id)
+// console.log("team id is: ", store.team._id)
 $('#add-player-section').show()
 $('#create-team').hide()
 
@@ -40,21 +40,21 @@ const viewTeamSuccess = (data) => {
 
 }
 const onDestroySuccess = () => {
-    $('#player-destroy-message').html('Player Deleted!')
-    $('#player-destroy-message').addClass('success')
+    $('#error-message').text('Player Deleted!')
+    $('#error-message').addClass('success')
     // this resets (clears) every form on the page
     $('form').trigger('reset')
     // Do the following code after a 5 second (5000 millisecond) timeout
     setTimeout(() => {
       // Clear the #books-destroy-message.
-      $('#player-destroy-message').html('')
+      $('#error-message').html('')
       // Remove the success class from our message
-      $('#player-destroy-message').removeClass('success')
+      $('#error-message').removeClass('success')
     }, 5000)
 }
 const onError = (err) => {
 // console.log(err)
-$('#error-message').html('Something went wrong, please try again.')
+$('#error-message').text('Something went wrong, please try again.')
 
 setTimeout(() => {
     $('#error-message').hide()
