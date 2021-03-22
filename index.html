@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Fantasy Basketball Team Builder</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <!-- <h1 class="title_font">Fantasy Basketball Team Builder</h1> -->
+      <div class="auth-section">
+        <div class="wrapper">
+
+          <div class="left">
+            <h3>Your Ultimate Dream Team</h3>
+            <img src="./public/image/fantasty_basketball.png" alt="fantasy_basketball">
+          </div>
+
+          <div class="right">
+            <div class="tabs">
+              <ul>
+                <li class="sign-up">Sign Up</li>
+                <li class="sign-in">Sign In</li>
+              </ul>
+            </div>
+
+            <div class="signUp">
+              <form class="form_box" id="sign-up">
+                <input type="email" class="input_field" name="credentials[email]" placeholder="Email Address" required>
+                <input type="password" class="input_field" name="credentials[password]" placeholder="Password" required>
+                <input type="password" class="input_field" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+                <button class="submit_btn">Sign Up</button>
+              </form>
+              <div id="signUpMessage"></div>
+            </div>
+
+            <div class="signIn">
+              <form class="form_box" id="sign-in">
+                <input type="email" class="input_field" name="credentials[email]" placeholder="Email Address" required>
+                <input type="password" class="input_field" name="credentials[password]" placeholder="Password" required>
+                <button class="submit_btn">Sign In</button>
+                <div id="signInMessage"></div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+      <!--Change Password-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="change-password">
+          <div class="form-group">
+            <h2 style="color: blue;">Settings</h2>
+            <label for="password">Change Password</label>
+          <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password" required/>
+          <input type="password" class="form-control" name="passwords[new]" placeholder="New Password" required/>
+          <button class="btn btn-warning">Change Password</button>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+      <!--Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #ff5858;" id="navbar">
+        <a class="navbar-brand" href="index.html">
+          <img src="./public/image/fantasty_basketball.png" width="50" height="50" alt="fantasty_basketball">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#create-team-section">Create Team <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#add-player-section">Add/Update Players</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">View Team</a>
+            </li>
+            <li class="nav-item">
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" id="password-btn" data-toggle="modal" data-target="#exampleModal">
+  Settings
+</button></li>
+            <li class="nav-item">
+              <button class="btn btn-danger" id="sign-out">Log Out</button>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Fantasy Basketball Team Builder
+          </span>
+        </div>
+      </nav>
+      <br>
+      <br>
+      <!--Create Team-->
+      <div class="container" id="create-team-section">
+        <div id="team-message"></div>
+        <form id="create-team">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Team Name</label>
+            <input type="text" class="form-control" name="team[name]"  aria-describedby="emailHelp" placeholder="Create a Team Name">
+            <small id="emailHelp" class="form-text text-muted">Create a team before joining a league.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">City</label>
+            <input type="text" class="form-control" name="team[city]"  placeholder="Enter a Team City ">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">ABBRV</label>
+            <input type="text" class="form-control" name="team[abbrv]" placeholder="ABBRV">
+          </div>
+          <button type="submit" class="btn btn-danger">Join League</button>
+          <div id="createTeamMessage"></div>
+        </form>
+      </div>
+      <br><br>
+      <!--Add/Update Player-->
+      <div class="container" id="add-player-section">
+        <div id="player-message"></div>
+        <h2 class="edit-team-header">Edit Team</h2>
+        <div class="row">
+          <div class="col">
+          <h3>Update Players</h3>
+          <td>
+          <table class="table table-hover table-danger" id="playerList">
+            <thead>
+              <tr>
+                <th scope="col">Position</th>
+                <th scope="col">Name</th>
+                <th scope="col">Points</th>
+                <th scope="col">Assists</th>
+                <th scope="col">Rebounds</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+          </td>
+          </div>
+          <div class="col">
+          <h3>Add Players</h3>
+            <table>
+              <tr>
+                <td>
+                  <form id="addPlayer">
+                    <label for="name">Name:</label><br>
+                    <input type="text" class="form-control" id="name" name="player[name]" placeholder="Player Name" required><br>
+                    <label for="name">Position:</label><br>
+                    <input type="text" class="form-control" id="position" name="player[position]" placeholder="Enter player position" required><small>choose one of these: pg,sg,sf,pf,c</small><br>
+                    <label for="name">Points:</label><br>
+                    <input type="number" class="form-control" id="points" name="player[points]" placeholder="Points Per Game" required><br>
+                    <label for="name">Assists:</label><br>
+                    <input type="number" class="form-control" id="assists" name="player[assists]" placeholder="Assists Per Game" required><br>
+                    <label for="name">Rebounds:</label><br>
+                    <input type="number" class="form-control" id="rebounds" name="player[rebounds]" placeholder="Rebounds Per Game" required><br>
+                    <button class="btn btn-success">Add</button>
+                    <div id="addPlayerMessage"></div>
+                    <button class="onUpdateBtn btn btn-warning">Update</button>
+                    <div id="updatePlayerMessage"></div>
+                  </form>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--View Team -->
+      <div class="container">
+        <button id="view-team" class="btn btn-success">View Team</button>
+        <div id="team-display"></div>
+        <div id="player-destroy-message"></div>
+      </div>
+      <div id="error-message"></div>
+    </body>
+</html>
