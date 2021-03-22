@@ -1,10 +1,10 @@
 const store = require('./../store')
 
 const signUpSuccess = (data) => {
-$('#signUpMessage').text('Account Created Successfully')
+$('#error-message').text('Account Created Successfully')
 $('form').trigger('reset')
 setTimeout(() => {
-    $('#signUpMessage').hide()
+    $('#error-message').hide()
 }, 4000)
 }
 const signUpFail = (error) => {
