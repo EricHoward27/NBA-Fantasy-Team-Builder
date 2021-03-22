@@ -15,7 +15,7 @@ const onAddPlayer = (event) => {
     // store team id into the player's team to populate
     data.player.team = store.team._id
     
-    console.log(data.player.team)
+    // console.log(data.player.team)
 
     // console.log('add player data is: ', data)
     api.addPlayer(data)
