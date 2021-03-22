@@ -38,8 +38,8 @@ function playerData(data){
     let cell5 = newRow.insertCell(4)
     cell5.innerHTML = data.rebounds
     let cell6 = newRow.insertCell(5)
-    cell6.innerHTML = `<button onClick="onEdit(this)" class="btn btn-dark" id="edit-btn">Edit</button>
-                       <button class="btn btn-danger" id="delete-btn">Delete</button>`
+//     cell6.innerHTML = `<button onClick="onEdit(this)" class="btn btn-dark" id="edit-btn">Edit</button>
+//                        <button class="btn btn-danger" id="delete-btn">Delete</button>`
    }
 
 //    const onEdit = (td) => {
