@@ -1,7 +1,7 @@
 const store = require("../store")
 
 const addPlayerSuccess = (data) => {
- 
+
 $('#player-message').text('Player added successful')
 
 store.player = data.player
@@ -12,7 +12,7 @@ $('form').trigger('reset')
 }
 const addPlayerFail = () => {
     $('#player-message').text('Error, please try again.')
-    
+
     setTimeout(() => {
         $('#player-message').hide()
     }, 4000)
